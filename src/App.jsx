@@ -6,6 +6,10 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
+import AddVariete from "./pages/FormVariete";
+import adminVariete from "./pages/admin/adminVariete";
+import adminPlants from "./pages/admin/adminPlants";
+import adminPlantsAdd from "./pages/admin/adminPlantsAdd";
 
 function App() {
   return (
@@ -15,6 +19,10 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/variete/ajouter/:plantId" component={AddVariete} />
+        <Route exact path="/admin/adminVariete" component={adminVariete} />
+        <Route exact path="/admin/adminPlants" component={adminPlants} />
+        <Route exact path="/admin/adminPlants/add" component={adminPlantsAdd} />
         <ProtectedRoute exact path="/profile" component={Profile} />
       </Switch>
     </div>
