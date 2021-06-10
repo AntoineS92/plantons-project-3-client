@@ -106,6 +106,13 @@ const apiHandler = {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
+  userInfo(user) {
+    return service
+      .get(`/api/users/me`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 };
 
 export default apiHandler;

@@ -1,10 +1,11 @@
 .NavMain {
-  background-color: transparent;
+  background-color: #ffffff;
   color: rgb(57, 57, 57);
   display: flex;
   align-items: center;
   padding: 20px;
   height: 70px;
+  font-size: 17px;
 }
 
 .NavMain .nav-list {

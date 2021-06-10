@@ -6,6 +6,8 @@ body {
 .plantsList {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  height: 90vh;
 }
 
 .container {
@@ -65,4 +67,109 @@ body {
 
 .veggieCard.active {
     border: 2px #91C237 solid;
+}
+
+.singlePlantMainInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.singlePlant.infos {
+    border: solid 0.5px grey;
+    margin: 5px 20px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.articleInfo {
+    width: 40%;
+    height: 50px;
+}
+
+.infoPara {
+    font-size: 13px;
+}
+
+.singlePlant.title{
+    text-align: center;
+    margin: 20px;
+}
+
+.singlePlant.title > h3{
+    font-size: 25px;
+}
+
+.singlePlant.title > h4{
+    font-size: 15px;
+}
+
+.singlePlant.infos {
+    padding: 15px;
+}
+
+.infoTitle {
+    margin: 0px;
+}
+
+.infoPara {
+    margin: 0px;
+    font-size: 12px;
+}
+
+.singlePlant > img {
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 100%;
+    height: 100px;
+  }
+
+.singleVarieteImage {
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 20%;
+}
+
+.listVarietes {
+    height: 150px;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.singleVariete {
+    text-align: center;
+    width: 40%;
+    min-width: 150px;
+    min-height: 150px;
+    height: 50%;
+    box-shadow: 0px 0px 15px 5px #f2f2f2;
+    border-radius: 15px;
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+.singlePlantMonth {
+    border: solid 0.5px grey;
+    margin: 5px 20px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+    border-radius: 15px;
+}
+
+.singlePlantSemis, .singlePlantRecolte{
+    width: 90%;
+    height: 40%;
 }

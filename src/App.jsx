@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedAdminRoute from "./components/ProtectedAdminRoute";
 import Profile from "./pages/Profile";
 import AddVariete from "./pages/FormVariete";
 import adminVariete from "./pages/admin/adminVariete";
@@ -20,9 +21,10 @@ function App() {
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/variete/ajouter/:plantId" component={AddVariete} />
-        <Route exact path="/admin/adminVariete" component={adminVariete} />
-        <Route exact path="/admin/adminPlants" component={adminPlants} />
-        <Route exact path="/admin/adminPlants/add" component={adminPlantsAdd} />
+        <ProtectedAdminRoute exact path="/admin/adminVariete" component={adminVariete} />
+        {/* <Route exact path="/admin/adminPlants" component={adminPlants} /> */}
+        <ProtectedAdminRoute exact path="/admin/adminPlants" component={adminPlants} />
+        <ProtectedAdminRoute exact path="/admin/adminPlants/add" component={adminPlantsAdd} />
         <ProtectedRoute exact path="/profile" component={Profile} />
       </Switch>
     </div>

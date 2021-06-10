@@ -1,0 +1,44 @@
+.updateDisplay {
+    display: flex;
+    justify-content: space-around;
+}
+
+.input {
+    border-radius: 15px;
+    padding: 3px;
+}
+
+.labelInput {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.labelInput > label {
+    font-weight: bold;
+}
+
+.plantUpdateForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.formButtons{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.formButtons > button{
+    border-radius: 15px;
+    padding: 6px 15px;
+}
+
+.singlePlant {
+    width: 80%;
+}
+
+.pageTitle.updatePage {
+    text-align: center;
+}

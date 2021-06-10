@@ -4,7 +4,7 @@ import apiHandler from "../api/apiHandler";
 
 export default class VeggisList extends Component {
   state = {
-    veggies: [],
+    plants: [],
     selectedPlant: null,
     selectedPlantBorder: false,
   };
@@ -16,7 +16,7 @@ export default class VeggisList extends Component {
         console.log("plants data = ", plants);
         const plantList = plants;
         this.setState({
-          veggies: plantList,
+          plants: plantList,
         });
       })
       .catch((err) => {
@@ -58,7 +58,7 @@ export default class VeggisList extends Component {
       <>
         <div className="container">
           <div className="plantList">
-            {this.state.veggies.map((veggie) => {
+            {this.state.plants.map((veggie) => {
               return (
                 <div
                   //ajouter ici une class active et non active pour changer le display quand l'item est cliqué
@@ -81,11 +81,80 @@ export default class VeggisList extends Component {
         {this.state.selectedPlant && (
           <div className="container">
             <div className="singlePlant">
-              <h1>{this.state.selectedPlant.name}</h1>
-              <h3>{this.state.selectedPlant.nomLatin}</h3>
-              <h4>{this.state.selectedPlant.famBotanique}</h4>
+              <img src={this.state.selectedPlant.image} alt="plant" />
+              <div className="singlePlant title">
+                <h3>{this.state.selectedPlant.name}</h3>
+                <h4>{this.state.selectedPlant.nomLatin}</h4>
+              </div>
+              <div className="singlePlant infos">
+                <article className="articleInfo">
+                  <h5 className="infoTitle">type</h5>
+                  <p className="infoPara">{this.state.selectedPlant.type}</p>
+                </article>
 
-              <h3>associations positives :</h3>
+                <article className="articleInfo">
+                  <h5 className="infoTitle">taille Foliaire</h5>
+                  <p className="infoPara">
+                    {this.state.selectedPlant.tailleFoliaire}
+                  </p>
+                </article>
+
+                <article className="articleInfo">
+                  <h5 className="infoTitle">taille système racinaire</h5>
+                  <p className="infoPara">
+                    {this.state.selectedPlant.tailleRacine}
+                  </p>
+                </article>
+
+                <article className="articleInfo">
+                  <h5 className="infoTitle">Sol</h5>
+                  <p className="infoPara">
+                    {this.state.selectedPlant.preferences.sol}
+                  </p>
+                </article>
+
+                <article className="articleInfo">
+                  <h5 className="infoTitle">Ensoleillement</h5>
+                  <p className="infoPara">
+                    {this.state.selectedPlant.preferences.soleil}
+                  </p>
+                </article>
+
+                <article className="articleInfo">
+                  <h5 className="infoTitle">maladies</h5>
+                  <p className="infoPara">
+                    {this.state.selectedPlant.maladies}
+                  </p>
+                </article>
+
+                <article className="articleInfo">
+                  <h5 className="infoTitle">parasites</h5>
+                  <p className="infoPara">
+                    {this.state.selectedPlant.parasites}
+                  </p>
+                </article>
+
+                <article className="articleInfo">
+                  <h5 className="infoTitle"></h5>
+                  <p className="infoPara"></p>
+                </article>
+              </div>
+
+              <div className="singlePlantMonth">
+                <div className="singlePlantSemis">
+                  <h5>Periode de Semis</h5>
+                  {this.state.selectedPlant.periodeSemis.map((data) => {
+                    return <span>{data} </span>;
+                  })}
+                </div>
+                <div className="singlePlantRecolte">
+                  <h5>Periode de Recolte</h5>
+                  {this.state.selectedPlant.periodeRecolte.map((data) => {
+                    return <span>{data} </span>;
+                  })}
+                </div>
+              </div>
+              {/* <h3>associations positives :</h3>
               {this.state.selectedPlant.associtationPos &&
                 this.state.selectedPlant.associtationPos.map((assocPos) => {
                   return (
@@ -99,18 +168,36 @@ export default class VeggisList extends Component {
               {this.state.selectedPlant.associtationNeg &&
                 this.state.selectedPlant.associtationNeg.map((assocNeg) => {
                   return <h4>{assocNeg.name}</h4>;
-                })}
+                })} */}
 
-              <h3>variétés : </h3>
-              {this.state.selectedPlant.variete &&
-                this.state.selectedPlant.variete.map((variete) => {
-                  if (variete.ajoute) {
-                    return <h2>{variete.name}</h2>;
-                  }
-                })}
-              <Link to={`/variete/ajouter/${this.state.selectedPlant._id}`}>
-                Ajouter une variete
-              </Link>
+              <div className="varietes">
+                <h2 className="varieteTitle">variétés : </h2>
+                <article className="listVarietes">
+                  {this.state.selectedPlant.variete &&
+                    this.state.selectedPlant.variete.map((variete) => {
+                      if (variete.ajoute) {
+                        return (
+                          <div className="singleVariete">
+                            <h3 className="singleVarieteName">
+                              {variete.name}
+                            </h3>
+                            <h4 className="singleVarieteOrigine">
+                              {variete.origine}
+                            </h4>
+                            <img
+                              className="singleVarieteImage"
+                              src={variete.image}
+                              alt="variete"
+                            />
+                          </div>
+                        );
+                      }
+                    })}
+                </article>
+                <Link to={`/variete/ajouter/${this.state.selectedPlant._id}`}>
+                  Ajouter une variete
+                </Link>
+              </div>
             </div>
           </div>
         )}

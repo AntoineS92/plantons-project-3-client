@@ -24,7 +24,7 @@ class FormSignup extends Component {
     apiHandler
       .signup(this.state)
       .then((data) => {
-        this.props.context.setUser(data);
+        this.props.context.setUser(data.newUserDocument);
       })
       .catch((error) => {
         console.log(error);

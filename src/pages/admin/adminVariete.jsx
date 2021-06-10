@@ -73,7 +73,7 @@ class adminVariete extends React.Component {
   render() {
     console.log("Varietes : ", this.state.varietes);
     return (
-      <div>
+      <div className="varietePage">
         <div className="container">
           <div className="varietesToAdd">
             <h2>Variétés à ajouter</h2>
@@ -81,10 +81,15 @@ class adminVariete extends React.Component {
             {this.state.varietes.map((variete) => {
               if (!variete.ajoute) {
                 return (
-                  <div>
+                  <div className="addSingleVariete">
                     <h3>{variete.name}</h3>
+                    <h4>{variete.origine}</h4>
+                    <img src={variete.image} alt="variete" />
                     <button onClick={() => this.handleAddVariete(variete)}>
                       Ajouter la variété
+                    </button>
+                    <button onClick={() => this.handleDelete(variete)}>
+                      Supprimer
                     </button>
                   </div>
                 );
@@ -98,8 +103,9 @@ class adminVariete extends React.Component {
             <h2>Liste de toutes les variétés existentes</h2>
             {this.state.varietes.map((variete) => {
               return (
-                <div>
+                <div className="addSingleVariete">
                   <h3>{variete.name}</h3>
+                  <h4>{variete.origine}</h4>
                   <button onClick={() => this.handleDelete(variete)}>
                     Supprimer
                   </button>

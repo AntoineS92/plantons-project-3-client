@@ -1,0 +1,40 @@
+.varietePage {
+    height: 90vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.addSingleVariete {
+    
+    text-align: center;
+    height: 150px;
+    box-shadow: 0px 0px 15px 5px #f2f2f2;
+    border-radius: 15px;
+    margin: 10px;
+
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.addSingleVariete > button {
+	background-color: #91C237;
+    color: white;
+    border-radius: 15px;
+    padding: 3px;
+    margin: 0px 8px;
+}
+
+button {
+    background-color: #91C237;
+    color: white;
+    border-radius: 15px;
+    padding: 3px;
+    margin: 0px 8px;
+}
+
+.allVariete {
+    text-align: center;
+}
