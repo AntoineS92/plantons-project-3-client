@@ -7,8 +7,8 @@ class FormSignup extends Component {
   state = {
     email: "",
     password: "",
-    firstName:"",
-    lastName:"",
+    firstName: "",
+    lastName: "",
   };
 
   handleChange = (event) => {
@@ -25,6 +25,7 @@ class FormSignup extends Component {
       .signup(this.state)
       .then((data) => {
         this.props.context.setUser(data.newUserDocument);
+        <Redirect to="/" />;
       })
       .catch((error) => {
         console.log(error);
@@ -37,43 +38,51 @@ class FormSignup extends Component {
     }
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          onChange={this.handleChange}
-          value={this.state.email}
-          type="email"
-          id="email"
-          name="email"
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          onChange={this.handleChange}
-          value={this.state.password}
-          type="password"
-          id="password"
-          name="password"
-        />
-
-        <label htmlFor="firstName">firstName</label>
-        <input
-          onChange={this.handleChange}
-          value={this.state.firstName}
-          type="text"
-          id="firstName"
-          name="firstName"
-        />
-
-        <label htmlFor="lastName">lastName</label>
-        <input
-          onChange={this.handleChange}
-          value={this.state.lastName}
-          type="text"
-          id="lastName"
-          name="lastName"
-        />
-        <button>Submit</button>
-      </form>
+      <div class="connectionContainer signUpContainer">
+        <form class="signUpForm" onSubmit={this.handleSubmit}>
+          <div className="inputLabel">
+            <label htmlFor="email">Email</label>
+            <input
+              onChange={this.handleChange}
+              value={this.state.email}
+              type="email"
+              id="email"
+              name="email"
+            />
+          </div>
+          <div className="inputLabel">
+            <label htmlFor="password">Password</label>
+            <input
+              onChange={this.handleChange}
+              value={this.state.password}
+              type="password"
+              id="password"
+              name="password"
+            />
+          </div>
+          <div className="inputLabel">
+            <label htmlFor="firstName">firstName</label>
+            <input
+              onChange={this.handleChange}
+              value={this.state.firstName}
+              type="text"
+              id="firstName"
+              name="firstName"
+            />
+          </div>
+          <div className="inputLabel">
+            <label htmlFor="lastName">lastName</label>
+            <input
+              onChange={this.handleChange}
+              value={this.state.lastName}
+              type="text"
+              id="lastName"
+              name="lastName"
+            />
+          </div>
+          <button className="signUpButton">S'inscrire</button>
+        </form>
+      </div>
     );
   }
 }

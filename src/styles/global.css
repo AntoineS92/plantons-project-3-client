@@ -2,6 +2,8 @@
 @import url("./plantList.css");
 @import url("./admin.css");
 @import url("./adminVariete.css");
+@import url("./connectionPage.css");
+@import url("./profile.css");
 
 * {
   margin: 0;

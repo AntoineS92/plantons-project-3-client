@@ -49,7 +49,6 @@ class adminPlants extends React.Component {
     console.log("hello", e.currentTarget);
 
     const divs = document.getElementsByClassName("veggieCard");
-    console.log("HELEOIKFNHEZO0BF0", divs);
 
     for (let index = 0; index < divs.length; index++) {
       divs[index].className = "veggieCard";
@@ -65,7 +64,6 @@ class adminPlants extends React.Component {
   };
 
   handleChange = (event) => {
-    console.log("hello");
     const key = event.target.name;
     const value = event.target.value;
 
@@ -112,10 +110,8 @@ class adminPlants extends React.Component {
   };
 
   render() {
-    console.log("NEWDATA", this.state.newData);
     return (
       <div>
-        <h1 className="pageTitle updatePage">Update a plant</h1>
         <div className="updateDisplay">
           <div className="container">
             <div className="plantList">
@@ -137,6 +133,7 @@ class adminPlants extends React.Component {
                   <div
                     //ajouter ici une class active et non active pour changer le display quand l'item est cliqué
                     className={`veggieCard`}
+                    key={veggie._id}
                     onClick={(e) => this.handleClickedPlant(e, veggie)}
                   >
                     <div className="plantImage">
@@ -304,9 +301,9 @@ class adminPlants extends React.Component {
                   </div>
 
                   <div className="formButtons">
-                    <button>Update plant</button>
+                    <button>Mettre à jour</button>
                     <button onClick={this.handleDelete}>
-                      Delete this plant
+                      Supprimer
                     </button>
                   </div>
                 </form>

@@ -22,21 +22,21 @@ const NavMain = (props) => {
   return (
     <nav className="NavMain">
       <NavLink exact to="/">
-        <h3 className="logo">App name</h3>
+        <h3 className="logo">Plantons</h3>
       </NavLink>
       <ul className="nav-list">
-        {context.isLoggedIn && (
+        {context.isLoggedIn && context.user.role === "admin" && (
           <React.Fragment>
             <li>
-              <NavLink to="/admin/adminPlants">
-                Admin Plants
-              </NavLink>
+              <NavLink to="/admin/adminPlants">Admin Plants</NavLink>
             </li>
             <li>
-              <NavLink to="/admin/adminVariete">
-                Admin Variete
-              </NavLink>
+              <NavLink to="/admin/adminVariete">Admin Variete</NavLink>
             </li>
+          </React.Fragment>
+        )}
+        {context.isLoggedIn && (
+          <React.Fragment>
             <li>
               <NavLink to="/profile">
                 {context.user && context.user.email}

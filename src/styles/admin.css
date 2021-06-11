@@ -1,11 +1,18 @@
 .updateDisplay {
     display: flex;
+    height: 90vh;
     justify-content: space-around;
+    align-items: center;
 }
 
 .input {
     border-radius: 15px;
     padding: 3px;
+}
+
+.input:focus {
+    box-shadow: 0 0 3pt 2pt #91C237;
+    outline: none;
 }
 
 .labelInput {
@@ -41,4 +48,40 @@
 
 .pageTitle.updatePage {
     text-align: center;
+}
+
+
+/* Admin add plant */
+
+.addPlantPage {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addPlantContainer {
+    width: 50%;
+    height: 80vh;
+}
+
+.addPlantForm{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.inputLabelAddPlant {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+
+.inputLabelAddPlant > label {
+    font-weight: bold;
+}
+
+.addPlantForm > button {
+    margin-top: 20px;
 }

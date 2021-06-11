@@ -69,6 +69,11 @@ body {
     border: 2px #91C237 solid;
 }
 
+.singlePlant {
+  width: 100%;
+  height: 100%;
+}
+
 .singlePlantMainInfo {
     display: flex;
     flex-direction: column;
@@ -77,8 +82,10 @@ body {
 
 .singlePlant.infos {
     border: solid 0.5px grey;
+    padding: 15px;
     margin: 5px 20px;
     height: 300px;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -98,6 +105,7 @@ body {
 .singlePlant.title{
     text-align: center;
     margin: 20px;
+    height: 50px;
 }
 
 .singlePlant.title > h3{
@@ -106,10 +114,6 @@ body {
 
 .singlePlant.title > h4{
     font-size: 15px;
-}
-
-.singlePlant.infos {
-    padding: 15px;
 }
 
 .infoTitle {
@@ -126,7 +130,7 @@ body {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     width: 100%;
-    height: 100px;
+    height: 150px;
   }
 
 .singleVarieteImage {

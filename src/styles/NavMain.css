@@ -16,3 +16,8 @@
 .NavMain .nav-list li:not(:last-child) {
   margin-right: 20px;
 }
+
+.NavMain .nav-list > li:hover {
+  font-size: 18px;
+}
+

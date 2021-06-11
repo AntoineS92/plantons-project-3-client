@@ -133,11 +133,6 @@ export default class VeggisList extends Component {
                     {this.state.selectedPlant.parasites}
                   </p>
                 </article>
-
-                <article className="articleInfo">
-                  <h5 className="infoTitle"></h5>
-                  <p className="infoPara"></p>
-                </article>
               </div>
 
               <div className="singlePlantMonth">

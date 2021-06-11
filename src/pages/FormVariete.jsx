@@ -6,10 +6,13 @@ class Variete extends React.Component {
   state = {
     name: "",
     origine: "",
+    image: "",
     ancienne: false,
     ajoute: false,
     plantId: this.props.match.params.plantId,
   };
+
+  inputFileRef = React.createRef();
 
   componentDidMount() {
     console.log("PROPS", this.props);
@@ -32,11 +35,22 @@ class Variete extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("submited", event);
-    console.log(this.state);
+
+    const file = this.inputFileRef.current.files[0];
+    const myFormData = new FormData();
+
+    console.log("FILE",file)
+    myFormData.append("image", file);
+    myFormData.append("name", this.state.name);
+    myFormData.append("origine", this.state.origine);
+    myFormData.append("ancienne", this.state.ancienne);
+    myFormData.append("ajoute", this.state.ajoute);
+    myFormData.append("plantId", this.state.plantId);
+
+    console.log("STATE IMAGE", this.state.image);
 
     apiHandler
-      .createVariete(this.state)
+      .createVariete(myFormData)
       .then((data) => {
         console.log(data);
       })
@@ -59,6 +73,20 @@ class Variete extends React.Component {
             className="input"
             placeholder="Quel est son petit nom ?"
           />
+
+            <div className="inputLabelAddPlant">
+              <label htmlFor="image" className="label">
+                choose a picture
+                <i className="icon fas fa-cloud-upload-alt fa-1x"></i>
+              </label>
+              <input
+                className="is-hidden"
+                type="file"
+                id="image"
+                name="image"
+                ref={this.inputFileRef}
+              />
+            </div>
 
           <label htmlFor="origine">origine :</label>
           <input
